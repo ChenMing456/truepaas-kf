@@ -28,6 +28,7 @@ app.use('/', index);
 app.use('/users', users);
 //specify the html we will use
 app.use('/chart', express.static(__dirname + '/www'));
+app.use('/admin', express.static(__dirname + '/admin'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
