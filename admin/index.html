@@ -1,10 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>聊天客服端</title>
+    <link rel="stylesheet" href="/vender/bootstrap.min.css">
+    <link rel="stylesheet" href="/tmp/styles/login.css">
+      <link rel="stylesheet" href="/tmp/styles/workorder.css">
+   <link rel="stylesheet" href="http://at.alicdn.com/t/font_v8acepjxypgv6lxr.css">
+  <link rel="stylesheet" href="/tmp/styles/style.min.css">
 
-</body>
-</html>
+</head>
+<body ng-app='app' ng-cloak ng-controller='appCtrl'>
+<!-- 登录界面 -->
+<div class="login"  ng-show='!haslogined' ng-controller='adm_loginCtrl'>
+    <!--登录页面头部-->
+    <div class="login-header">
+        <div class="header-container">
+            <img src="/tmp/img/truepaas_logo.png" class="header-logo"/>
+        </div>
+        <div class="header-back"><a href="https://user.truepaas.com/#/access/index">返回TruePaaS首页</a></div>
+    </div>
+    <!--登录页面内容-->
+    <div class="login-main row">
+        <div class="login-main-left col-md-7 column">
+            <p>
+            <h1 class='h1'>TruePaaS客服系统</h1>
+            <h3 class='h3'>加速您的应用上线</h3>
+            <span class="login-main-text">应用编译、测试、部署这样简单的事情交给TruePaaS，多点时间留给生活！</span>
+            </p>
+        </div>
+        <!--登录框-->
+        <div class="login-main-right col-md-3 column ">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#">用户登录</a>
+                </li>
+                <li>
+                    <a href="#">新用户注册</a>
+                </li>
+            </ul>
+            <div class="login-box">
+                <form role="form">
+                    <div class="form-group">
+                        <label >User Name</label><input type="text" class="form-control" placeholder="用户名" id="loginEmail1" ng-model="username"/>
+                    </div>
+                    <div class="form-group">
+                        <label >Password</label><input type="password" class="form-control" placeholder="登录密码" id="loginPassword1" ng-model="password"/>
+                    </div>
+                    <button type="submit" class="btn btn-default" ng-click='rightToLogin()'>登录</button>
+                </form>
+                <div class="footer-back"><a href="#">忘记密码</a></div>
+            </div>
+
+        </div>
+        <!-- 右边空白区 -->
+            <div class="login-main-empty col-md-2 column ">
+            </div>
+    </div>
+   <!--登录页面底部-->
+   <div class="login-footer">
+       <span class="footer-back">2017 湖北省楚天云有限公司.版权所有</span>
+   </div>
+</div>
+
+
+<!-- 页面主体 -->
+  <div class="serviceWrap" ng-show='haslogined'>
+    <div class="serLeftbar">
+      <div class="leftbarTitle">
+        <a href="#/adm/chatting">
+          Truepaas
+        </a>
+      </div>
+      <ul class="tabbar">
+        <li>
+          <a href="#/adm/chatting">
+
+            <i class='iconfont' >&#xe636;</i> <span>当前会话</span>
+          </a>
+        </li>
+
+        <li ng-click='clickoldMsg()'>
+          <a href="#/adm/oldmsg">
+            <i class='iconfont'>&#xe606;</i>
+            <span>留言</span>
+
+          </a>
+        </li>
+        <li ng-click='clickHistory()'>
+          <a href="#/adm/history">
+            <i class='iconfont'>&#xe699;</i>
+            <span>
+              历史会话
+            </span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#/adm/workorder">
+            <i class='iconfont'>&#xe607;</i>
+            <span>
+              工单中心
+            </span>
+          </a></li>
+
+        </ul>
+      </div>
+      <!-- 客服页面主体部分 -->
+      <div class="sermainbar">
+        <!-- 不变的头部 -->
+        <div class="serviceTop">
+
+            <i class='iconfont' ng-click='pageGoLogin()'>退出&#xe603;</i>
+
+          <span>客服名</span>
+        </div>
+        <!-- 变化的部分 自定义路由模板页面  -->
+        <div class='mainCotent' ng-view>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 提示格式错误弹出框 -->
+    <div class="alert alert-warning alert-dismissible showAlert" role="alert">
+      用户名或密码错误，请重新输入！
+    </div>
+
+    <!-- 引入的包 -->
+    <script src='/vender/jquery-3.1.1.js'>
+
+    </script>
+    <script src='/socket.io/socket.io.js'></script>
+    <script src='/vender/angular.js'>
+    </script>
+    <script src='/vender/angular-route.js'>
+    </script>
+
+    <script src='/vender/angular-sanitize.js'></script>
+    <!-- 主模板 -->
+    <script src='/scripts/app.js'>
+
+    </script>
+
+    <!-- 子模板 -->
+    <script src='/adm_chatting/controller.js'>
+    </script>
+    <script src='/adm_oldmsg/controller.js'>
+
+    </script>
+    <script src='/adm_history/controller.js'>
+
+    </script>
+    <script src='/scripts/service/angular_socket.js'>
+
+    </script>
+    <script src='/scripts/filter/trustHtml.js'>
+
+    </script>
+<script src='/adm_login/adm_login.js'>
+
+</script>
+<script src='/scripts/directive/scrollToBottom.js'>
+
+</script>
+  <script src='/adm_workorder/controller.js'></script>
+  </body>
+  </html>

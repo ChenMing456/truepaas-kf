@@ -1,0 +1,43 @@
+<div class="oldMsg_Wrap">
+  <!-- 留言页面左侧 -->
+  <div class="oldMsg_Left">
+    <div class="oldMsg_Left_title">
+      <span>历史记录</span>
+    </div>
+    <ul class='oldMsg_Left_list'>
+      <li ng-repeat='item in users' ng-click='showOldMsgDetail(item.fromid)'>
+        <p>{{item.fromid}}</p>
+        <span class='lastMsg'>{{item.msg}}</span>
+        <!-- <span class='lastMsg' title='{{msg.msg[msg.msg.length-1]}}'>{{msg.msg[msg.msg.length-1]}}</span> -->
+        <span class="date">
+          {{item.meta.updateAt | date:'short'}}
+        </span>
+      </li>
+    </ul>
+
+  </div>
+   <!--
+  
+  -->
+  <!-- 留言详情 -->
+  <div class="newMsg_Middle">
+    <div class="newMsg_Middle_header">
+      <span class='userName'>{{everyDetail[0].fromid}}</span>
+    </div>
+    <!--消息展示区  -->
+    <div class="newMsg_Middle_historyMsg" scroll-to-bottom="true">
+      <div class="newmsgWrap clearfix" ng-repeat='user in everyDetail'
+      ng-class="{right:user.name==obj.fromid,left:user.name!==obj.fromid}">
+
+      <div id='allNewmsg' class="newcusMsg">
+      <span class='msg' ng-show='user.msg' ng-bind-html="user.msg | trustHtml"></span>
+      <span class='msg' ng-show='user.img'> <a ng-href="{{user.img}}" target=_blank><img ng-src="{{user.img}}" /></a></span>
+      <p class="shoWDate">{{user.time.updateAt | date:'short'}}</p>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

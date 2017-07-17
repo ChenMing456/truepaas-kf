@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link type="text/css" href="vender/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" >
+</head>
+<body>
+<div class="login">
+    <p><span class="login-title">truepaas客服系统</span></p>
+    <div class="login-content">
+        <form role="form">
+            <p><span class="login-content-header">用户登录</span></p>
+            <div class="form-group">
+                <label >User Name</label><input type="email" class="form-control" placeholder="用户名/邮箱" id="loginEmail1" />
+            </div>
+            <div class="form-group">
+                <label >Password</label><input type="password" class="form-control" placeholder="登录密码" id="loginPassword1" />
+            </div>
+             <button type="submit" class="btn btn-default">登录</button>
+        </form>
+    </div>
+</div>
+</body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .login{
+        min-height: 700px;
+        background-color: #F8F8FF;
+    }
+    .login-title{
+        position: relative;
+        top: 50px;
+        left: 38%;
+        font-size: 40px;
+    }
+    .login-content-header{
+        padding-left: 38%;
+        font-size: 20px;
+    }
+    .login-content{
+        padding: 8px;
+        height: 300px;
+        width: 400px;
+        background-color: #F5F5F5;
+        border: solid 1px black;
+        border-radius: 15px;
+        position: relative;
+        top: 100px;
+        left: 35%;
+    }
+    .btn{
+        width: 30%;
+        position: relative;
+        left: 35%;
+    }
+</style>
+<script src="vender/jquery-3.1.1.js"></script>
+<script src="vender/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</html>

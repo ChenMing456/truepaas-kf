@@ -1,0 +1,76 @@
+<div class="oldMsg_Wrap">
+  <!-- 工单列表页面左侧 -->
+  <div class="oldMsg_Left">
+    <div class="oldMsg_Left_title">
+      <span>工单列表</span>
+    </div>
+    <ul class='oldMsg_Left_list'>
+      <li ng-repeat='msg in users' ng-click='' >
+        <p>{{msg.creator_name}}</p>
+        <span class="date">
+          {{msg.create_time}}
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div class="newMsg_Middle">
+    <div class="newMsg_Middle_header">
+      <span>工单详情</span>
+    </div>
+
+    <!--  工单页面  -->
+    <div class="workOrder-wrap">
+      <div class='workOrder-mainContent'>
+        <!--工单内容-->
+        <div  class="row workOrder-title"><p><span class="col-md-3 ">标题:</span></p><input type="text" class="title col-md-9 " ng-model='detailOrder.work_order_title'></div>
+        <div  class="row workOrder-title"><p><span class="col-md-3">需求类型：</span></p>
+          <label class="checkbox-inline">
+            <input type="radio" name="optionsRadiosinline"  ng-checked='detailOrder.work_order_type_id==10001'> 新建组织
+          </label>
+          <label class="checkbox-inline">
+            <input type="radio" name="optionsRadiosinline"
+            ng-checked='detailOrder.work_order_type_id==10002'
+            > 空间扩容
+          </label>
+          <label class="checkbox-inline">
+            <input type="radio" name="optionsRadiosinline"
+            ng-checked='detailOrder.work_order_type_id==10003'
+            > 意见反馈
+          </label>
+        </div>
+        <div  class="row workOrder-title"><p><span class="col-md-3">选择模板：</span></p>
+          <select class="title col-md-9">
+            <optgroup class="select-choose" label="请选择模板..">
+              <option  ng-selected='detailOrder.work_order_template_id==10001'>平台意见</option>
+              <option  ng-selected='detailOrder.work_order_template_id==10002'>交互不佳</option>
+            </optgroup>
+          </select>
+        </div>
+        <div  class="row workOrder-desc">
+          <p><span class="col-md-3">需求描述：</span></p>
+          <textarea class="require_display col-md-9" ng-model='detailOrder.content'></textarea>
+        </div>
+        <div  class="row workOrder-photo">
+          <p><span class="col-md-3">相关截图：</span></p>
+          <p class="preview-img col-md-9">
+            <a id='previewLink' target="_blank" ng-href='detailOrder.images'>
+              <img id="preview" alt="" name="pic" ng-src='detailOrder.images'/>
+            </a>
+          </p>
+        </div>
+        <div  class="row workOrder-title">
+          <p><span class="col-md-3">申请人：</span></p><input type="text" placeholder="姓名" class="gongdan_name col-md-3" ng-model='detailOrder.creator_name'>
+        </div>
+        <div  class="row workOrder-title">
+          <p><span class="col-md-3">联系方式：</span></p><input type="text" placeholder="联系电话" class="phone col-md-3" ng-model='detailOrder.creator_phone'>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>
+</div>

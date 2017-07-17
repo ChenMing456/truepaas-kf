@@ -15,7 +15,7 @@ var HiChat = function() {
 HiChat.prototype = {
     init: function() {
         var that = this;
-        this.socket = io.connect();
+        this.socket = io.connect('http://127.0.0.1:3000');
         this.socket.on('connect', function() {
             document.getElementById('info').textContent = 'get yourself a nickname :)';
             document.getElementById('nickWrapper').style.display = 'block';

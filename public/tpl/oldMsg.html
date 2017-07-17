@@ -1,0 +1,62 @@
+<div class="oldMsg_Wrap">
+  <!-- 留言页面左侧 -->
+  <div class="oldMsg_Left">
+    <div class="oldMsg_Left_title">
+      <span>留言列表</span>
+    </div>
+    <ul class='oldMsg_Left_list'>
+      <li ng-repeat='item in users' ng-click='showOldMsgDetail(item.fromid)'>
+        <p>{{item.fromid}}</p>
+        <span class='lastMsg'>{{item.msg}}</span>
+        <!-- <span class='lastMsg' title='{{msg.msg[msg.msg.length-1]}}'>{{msg.msg[msg.msg.length-1]}}</span> -->
+        <span class="date">
+          {{item.meta.updateAt | date:'short'}}
+        </span>
+      </li>
+    </ul>
+  </div>
+ 
+  <!-- 留言详情 -->
+  <div class="newMsg_Middle">
+    <div class="newMsg_Middle_header">
+      <span class='userName'>{{everyDetail[0].fromid}}</span>
+    </div>
+    <!--消息展示区  -->
+    <div class="newMsg_Middle_historyMsg">
+      <li ng-repeat='item in everyDetail'>
+        <span class='oldMsg' title='{{item.msg}}' ng-bind-html="item.msg | trustHtml">{{item.msg}}</span>
+        <p class="date">
+        {{item.meta.createAt | date:'short'}}
+        </p>
+      </li>
+    </div>
+    <!-- 下部发起会话区 -->
+    <div class="newMsg_Middle_footer">
+
+      <button type="button" name="button" ng-click="startNewMsg(everyDetail[0].fromid)">
+        发起会话
+      </button>
+    </div>
+  </div>
+
+  <!-- 右边个人信息 -->
+  <div class="newMsg_Right">
+    <div class="newMsg_Right_header">
+      <p>用户信息</p>
+    </div>
+    <div class="newMsg_Right_body">
+      <p><i class='iconfont'>&#xe62c;</i><span>个人信息</span> </p>
+      <ul>
+        <li>姓名<span title='张三'>张三</span></li>
+        <li>手机<span title='12345678910'>12345678910</span></li>
+        <li>邮箱<span title='123456789@qq.com'>123456789@qq.com</span></li>
+        <li>地址<span title='湖北省武汉市光谷软件新城xxxxxxxxx'>湖北省武汉市光谷软件新城xxxxxxxxx</span></li>
+        <li>来源终端<span title="xx">xx</span></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+</div>

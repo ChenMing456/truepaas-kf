@@ -1,0 +1,105 @@
+<div class="newMsg_Wrap">
+  <!-- 当前会话页面左侧 -->
+  <div class="newMsg_Left">
+    <!-- 会话中 -->
+    <div class="newMsg_Chating" ng-click="showOnlineClick()">
+      <i class='iconfont' ng-class="{'icon-1':showOnline,'icon-1-copy':!showOnline}"></i>
+      <span class='title'>用户列表（{{chatting.length}}）</span>
+    </div>
+    <!-- 会话成员消息 -->
+    <div class="newMsg_Chating_name" ng-repeat='item in chatting' ng-click='showUserMsg(item)' ng-show='showOnline'>
+    <p>{{item}}</p>
+    <!-- <button ng-click="remove($index)">Remove</button> -->
+     <!--  <span>{{item.date}}</span> -->
+    </div>
+    <!-- 已离线 -->
+    <!-- <div class="newMsg_leaving" ng-click="showUnlineClick()">
+      <i class='iconfont' ng-class="{'icon-1':showUnline,'icon-1-copy':!showUnline}"></i>
+      <span class='title'>
+        已离线（{{admin.unchatting.length}}）
+      </span>
+    </div> -->
+    <!-- 离线成员消息 -->
+    <!-- <div class="newMsg_Chating_name" ng-show='showUnline' ng-repeat='item in admin.unchatting'>
+      <p>{{item}}</p> -->
+      <!-- <span>{{item.date}}</span> -->
+    <!-- </div> -->
+  </div>
+  <!-- 中间聊天框 -->
+<div class="newMsg_Middle">
+<div class="newMsg_Middle_header">
+  <span id="userName">{{users[0].name}}</span>
+</div>
+<!--消息展示区  -->
+<div class="newMsg_Middle_historyMsg clearfix" id='newMsg_Middle_historyMsg'
+scroll-to-bottom="true">
+  <!-- ajax得到的数据展示在页面 -->
+  <div class="newmsgWrap clearfix" ng-repeat='user in users'
+  ng-class="{right:user.name==obj.fromid,left:user.name!==obj.fromid}">
+
+  <div id='allNewmsg' class="newcusMsg">
+  <span class='msg' ng-show='user.msg' ng-bind-html="user.msg | trustHtml"></span>
+  <span class='msg' ng-show='user.img'> <a ng-href="{{user.img}}" target=_blank><img ng-src="{{user.img}}" /></a></span>
+  <p class="shoWDate">{{user.time.updateAt | date:'short'}}</p>
+  </div>
+
+  </div>
+
+
+</div>
+<!-- 下部发消息区 -->
+<div class="newMsg_Middle_footer">
+  <!-- 功能区 -->
+<div class="functional">
+<i class='iconfont iconfont_emoji' ng-click='emojiClick_show($event)'>&#xe60c;</i>
+<i class='iconfont icon-gongdan1' ng-click='sendWorkorder()'></i>
+<label for="send_photo">
+  <i class='iconfont iconfont_photo'>&#xe633;</i>
+</label>
+<form id='editfile' method='post' action='/upload' enctype='multipart/form-data'>
+   <input type="file" class='send_photo' id='send_photo' name='photoLogo' accept="image/tiff,image/jpeg,image/gif,image/x-png,image/x-photo-cd,image/x-rgb,image/x-MS-bmp,image/x-portable-pixmap,image/x-portable-greymap">
+</form>
+<!-- 表情包含区 -->
+<div class="emojiWrap" id='emojiWrapper' ng-show='emojiShow'>
+
+    <li ng-repeat='emoji in allEmoji'>
+      <img src={{emoji.src}} title={{emoji.id}} ng-click='everyEmojiClick($event)'/>
+    </li>
+
+</div>
+</div>
+<!-- 下部写消息区 -->
+<div class="footer_writeMsg">
+  <form ng-submit='submit(msg)'>
+    <textarea name="name" rows="8" cols="80" ng-model='msg' id='textarea_text'></textarea>
+  </form>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="newMsg_Right">
+  <div class="newMsg_Right_header">
+    <p>用户信息</p>
+  </div>
+  <div class="newMsg_Right_body">
+    <p><i class='iconfont'>&#xe62c;</i><span>个人信息</span> </p>
+    <ul>
+      <li>姓名<span title='张三'>张三</span></li>
+      <li>手机<span title='12345678910'>12345678910</span></li>
+      <li>邮箱<span title='123456789@qq.com'>123456789@qq.com</span></li>
+      <li>地址<span title='湖北省武汉市光谷软件新城xxxxxxxxx'>湖北省武汉市光谷软件新城xxxxxxxxx</span></li>
+      <li>来源终端<span title="xx">xx</span></li>
+    </ul>
+  <div class="custom-label">
+    <input type="radio" id='uncharged' value='uncharged' name="label">潜在客户
+    <input type="radio" id='charged' value="charged" name="label">已付费客户
+  </div>
+</div>
+
+</div>

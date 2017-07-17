@@ -1,0 +1,76 @@
+.workOrder-wrap {
+  overflow: hidden;
+  padding: 20px;
+}
+
+.gongdan-header.row {
+  text-align: center;
+  font-size: 20px;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.workOrder-mainContent {
+  font-size: 16px;
+}
+
+.workOrder-mainContent .workOrder-title {
+  margin: 10px 0;
+  height: 30px;
+  line-height: 30px;
+}
+
+.workOrder-mainContent .workOrder-title .select-choose {
+  text-align: center;
+}
+
+.workOrder-mainContent .workOrder-desc {
+  margin: 20px 0;
+  height: 100px;
+  text-align: center;
+}
+
+.workOrder-mainContent .workOrder-desc textarea {
+  height: 100px;
+  resize: none;
+}
+
+.workOrder-mainContent .workOrder-photo {
+  margin: 10px 0;
+  height: 100px;
+  text-align: center;
+}
+
+.workOrder-mainContent .workOrder-photo .preview-img {
+  width: 150px;
+  height: 100px;
+  border: 1px solid #232020b3;
+}
+
+.workOrder-mainContent .workOrder-title p span {
+  width: 25%;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+}
+
+.workOrder-mainContent .workOrder-title input {
+  height: 30px;
+}
+/*弹出框*/
+.showAlert {
+    color: rgba(30, 66, 167, 0.74);
+    background-color: #FF6347;
+    left: 50%;
+    position: absolute;
+    display: none;
+    z-index: 1010;
+    top: 20%;
+    padding: 15px;
+    width: 302px;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: -151px;
+}
+

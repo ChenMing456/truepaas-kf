@@ -1,0 +1,92 @@
+.login {
+  height: 100%;
+  background-color: #F8F8FF;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.login-header {
+  height: 60px;
+  border-bottom: solid 1px #E5E5E5;
+}
+
+.header-logo {
+  height: 40px;
+  float: left;
+  margin-top: 14px;
+}
+
+.footer-back,
+.header-back {
+  margin-right: 20px;
+}
+
+.header-back a {
+  float: right;
+  color: #A0A0A0;
+  font-size: 12px;
+  text-decoration: none;
+  line-height: 60px;
+}
+
+.header-back a:hover {
+  color: black;
+}
+
+.login-main {
+  min-height: 570px;
+  background: url("../img/background.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.login-main-left {
+  height: 370px;
+  text-align: center;
+  padding-top: 195px;
+}
+
+.login-main-left .h1 {
+  font-size: 36px;
+}
+
+.login-main-left .h3 {
+  font-size: 24px;
+}
+
+.login-main-right {
+  padding: 8px;
+  height: 370px;
+  background-color: #F8F8FF;
+  border: 2px solid #e5e5e5;
+  position: relative;
+  top: 100px;
+}
+
+.nav li {
+  padding-top: 10px;
+  width: 50%;
+}
+
+.login-box {
+  padding: 20px 10px;
+  background-color: white;
+}
+
+.btn {
+  margin-top: 10px;
+  width: 100%;
+  color: white;
+  background-image: linear-gradient(to bottom, #108cee, #0765e4);
+}
+
+.login-footer {
+  text-align: center;
+  height: 25px;
+  border-top: solid 1px #E5E5E5;
+}
+
+.footer-back {
+  line-height: 25px;
+  font-size: 12px;
+}
